@@ -288,13 +288,20 @@ class _ConnectionPageState extends State<ConnectionPage>
     return Column(
       children: [
         Expanded(
-            child: Column(
-        ).paddingOnly(left: 12.0)),
-        if (!isOutgoingOnly) const Divider(height: 1),
-        if (!isOutgoingOnly) OnlineStatusWidget()
-      ],
-    );
-  }
+          child: Center(
+            child: Image.asset(
+              'assets/obowlb.png',
+              width: 399,
+              height: 106,
+              fit: BoxFit.contain,
+           ),
+         ),
+      ).paddingOnly(left: 12.0),
+      if (!isOutgoingOnly) const Divider(height: 1),
+      if (!isOutgoingOnly) OnlineStatusWidget(),
+    ],
+  );
+}
 
   /// Callback for the connect button.
   /// Connects to the selected peer.
