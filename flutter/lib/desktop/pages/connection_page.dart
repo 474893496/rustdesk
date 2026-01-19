@@ -285,25 +285,37 @@ class _ConnectionPageState extends State<ConnectionPage>
   @override
   Widget build(BuildContext context) {
     final isOutgoingOnly = bind.isOutgoingOnly();
-    return Column(
-      children: [
-        Expanded(
-            child: Column(
-              children: [
-                Expanded(
-                  child: Center(
-                    child: Image.asset(
-                      'assets/obowlb.png',
-                      width: 399, 
-                      height: 106, 
-                      fit: BoxFit.contain,
-                    ),
-                  ),
-                ),
+     return Column(
+    children: [
+      Expanded(
+        child: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                Color(0xFF0E1117),
+                Color(0xFF141824),
               ],
-        ).paddingOnly(left: 12.0)),
-        if (!isOutgoingOnly) const Divider(height: 1),
-        if (!isOutgoingOnly) OnlineStatusWidget()
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+            ),
+          ),
+          child: SizedBox.expand(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 96.0,
+                vertical: 72.0,
+              ),
+              child: Image.asset(
+                'assets/obowlb.png',
+                fit: BoxFit.contain,
+              ),
+            ),
+          ),
+        ).paddingOnly(left: 12.0),
+      ),
+
+        //if (!isOutgoingOnly) const Divider(height: 1),
+        //if (!isOutgoingOnly) OnlineStatusWidget()
       ],
     );
   }
