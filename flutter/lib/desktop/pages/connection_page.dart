@@ -314,8 +314,8 @@ class _ConnectionPageState extends State<ConnectionPage>
         ).paddingOnly(left: 12.0),
       ),
 
-        //if (!isOutgoingOnly) const Divider(height: 1),
-        //if (!isOutgoingOnly) OnlineStatusWidget()
+        if (!isOutgoingOnly) const Divider(height: 1),
+        if (!isOutgoingOnly) OnlineStatusWidget()
       ],
     );
   }
