@@ -283,9 +283,8 @@ class _ConnectionPageState extends State<ConnectionPage>
   }
 
   @override
-  Widget build(BuildContext context) {
-    final isOutgoingOnly = bind.isOutgoingOnly();
-     return Column(
+Widget build(BuildContext context) {
+  return Column(
     children: [
       Expanded(
         child: Container(
@@ -302,8 +301,8 @@ class _ConnectionPageState extends State<ConnectionPage>
           child: SizedBox.expand(
             child: Padding(
               padding: const EdgeInsets.symmetric(
-                horizontal: 96.0,
-                vertical: 72.0,
+                horizontal: 64.0,
+                vertical: 48.0,
               ),
               child: Image.asset(
                 'assets/obowlb.png',
@@ -311,14 +310,11 @@ class _ConnectionPageState extends State<ConnectionPage>
               ),
             ),
           ),
-        ).paddingOnly(left: 12.0),
+        ),
       ),
-
-        if (!isOutgoingOnly) const Divider(height: 1),
-        if (!isOutgoingOnly) OnlineStatusWidget()
-      ],
-    );
-  }
+    ],
+  );
+}
 
   /// Callback for the connect button.
   /// Connects to the selected peer.
