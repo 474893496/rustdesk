@@ -282,11 +282,12 @@ class _ConnectionPageState extends State<ConnectionPage>
     }
   }
 
-  @override
+ @override
 Widget build(BuildContext context) {
-  return Column(
+  return Stack(
     children: [
-      Expanded(
+      // 背景：整块渐变（强制铺满）
+      Positioned.fill(
         child: Container(
           decoration: const BoxDecoration(
             gradient: LinearGradient(
@@ -298,23 +299,23 @@ Widget build(BuildContext context) {
               end: Alignment.bottomCenter,
             ),
           ),
-          child: SizedBox.expand(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 64.0,
-                vertical: 48.0,
-              ),
-              child: Image.asset(
-                'assets/obowlb.png',
-                fit: BoxFit.contain,
-              ),
-            ),
+        ),
+      ),
+
+      // Logo：铺满区域显示
+      Positioned.fill(
+        child: Padding(
+          padding: const EdgeInsets.all(24.0), // 控制贴边程度
+          child: Image.asset(
+            'assets/obowlb.png',
+            fit: BoxFit.cover, // 🔥 关键：真正铺满
           ),
         ),
       ),
     ],
   );
 }
+
 
   /// Callback for the connect button.
   /// Connects to the selected peer.
