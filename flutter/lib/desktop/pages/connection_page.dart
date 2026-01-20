@@ -282,13 +282,14 @@ class _ConnectionPageState extends State<ConnectionPage>
     }
   }
 
- @override
+@override
 Widget build(BuildContext context) {
-  return Stack(
-    children: [
-      // 背景：整块渐变（强制铺满）
-      Positioned.fill(
-        child: Container(
+  return SizedBox.expand( // ⭐ 强制吃满父级
+    child: Stack(
+      fit: StackFit.expand,
+      children: [
+        // 背景渐变
+        Container(
           decoration: const BoxDecoration(
             gradient: LinearGradient(
               colors: [
@@ -300,19 +301,14 @@ Widget build(BuildContext context) {
             ),
           ),
         ),
-      ),
 
-      // Logo：铺满区域显示
-      Positioned.fill(
-        child: Padding(
-          padding: const EdgeInsets.all(24.0), // 控制贴边程度
-          child: Image.asset(
-            'assets/obowlb.png',
-            fit: BoxFit.cover, // 🔥 关键：真正铺满
-          ),
+        // Logo
+        Image.asset(
+          'assets/obowlb.png',
+          fit: BoxFit.cover,
         ),
-      ),
-    ],
+      ],
+    ),
   );
 }
 
